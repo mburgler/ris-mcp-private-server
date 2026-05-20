@@ -75,20 +75,26 @@ Identify the corpus and (if known) the specific application:
 - **Cases interpreting a statute?** → `corpus: "case_law"`; `norm: "§73 AVG"` (or similar); leave `applikation` unset to fan out across all 17 case-law apps.
 - **Change feed?** → `ris_get_history(anwendung, from_date, to_date)`.
 
-If the user gives a colloquial name (ABGB, StGB, GDPR, DSG, AsylG), use it directly — the wrapper passes it through as `query` / `gesetzesnummer`.
+If the user gives a colloquial name (ABGB, StGB, GDPR, DSG, AsylG), use it directly as the `query` of a `ris_search` — the wrapper resolves it. Do not turn the name into a document id yourself.
+
+**IDs come from search — never invent one.** `ris_get_section`, `ris_get_document`, `ris_verify`, and `ris_get_related` all take an `id`. That `id` must be a real RIS identifier obtained from a `ris_search` result *in this session*, or one the user pasted. Never construct it from knowledge of the law:
+
+- **RIS-internal ids** (`NOR40198929`) and **Gesetzesnummern** (`10001622`) are opaque database keys — not derivable from a law's name, year, or gazette. Inventing one returns a `not_found` error at best, and a confident citation of the *wrong* document at worst.
+- An **ELI URL** (`https://www.ris.bka.gv.at/eli/jgs/1811/946/P12/NOR…`) is the one constructable identifier — but only by taking a *verified* ELI URL from a search result and substituting the paragraph segment (`P{n}`). Never assemble one from scratch.
+- On a `not_found`, the `id` is the problem — not the section. Do **not** re-fire the same call for other sections. Re-run `ris_search` for a valid id first.
 
 ### 2. Choose the right tool
 
-Map intent to tool. Compose multiple tools when a question spans more than one.
+Map intent to tool. `ris_get_section` / `ris_get_document` / `ris_verify` / `ris_get_related` are **second-step** tools — unless the user pasted a real id, the first call is almost always `ris_search` to obtain one. Compose multiple tools when a question spans more than one.
 
-| User intent | Primary tool | Compose with |
+| User intent | First call | Then fetch with the id from the result |
 |---|---|---|
-| "What does X say about Y?" | `ris_search` | `ris_get_section(celex_id, section_ref)` for the full Article text |
-| "Show me §N of [code]" | `ris_get_section(id, "§ N")` | `ris_get_document(id, include_structure=true)` for the TOC |
-| "Is X currently in force?" | `ris_verify(id, at_date)` | `ris_get_document(id, include_full_metadata=true)` for surrounding identity data |
-| "What amends / cites / implements X?" | `ris_get_related(id)` | `ris_search(corpus="case_law", norm=X)` for citing decisions |
+| "What does X say about Y?" | `ris_search` | `ris_get_section(id, section_ref)` for the full paragraph text |
+| "Show me §N of [code]" | `ris_search` (resolve the code → a record + id) | `ris_get_section(id, "§ N")`; `ris_get_document(id, include_structure=true)` for the TOC |
+| "Is X currently in force?" | `ris_search` (unless the user gave an id) | `ris_verify(id, at_date)`; `ris_get_document(id, include_full_metadata=true)` |
+| "What amends / cites / implements X?" | `ris_search` | `ris_get_related(id)`; `ris_search(corpus="case_law", norm=X)` for citing decisions |
 | "What changed in [application] between dates?" | `ris_get_history(anwendung, from, to)` | per-record `ris_get_document` for follow-up |
-| "Compare A vs B" | 2× `ris_get_section` | reason over both texts agent-side |
+| "Compare A vs B" | `ris_search` ×2 | 2× `ris_get_section`, reason over both texts agent-side |
 | "Documents from year Y" | `ris_search(date_from, date_to)` | — |
 | "What capabilities does the RIS connector cover?" | `ris_about` | `ris_list_scopes` for filterable values |
 
