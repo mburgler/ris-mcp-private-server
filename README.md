@@ -1,6 +1,6 @@
 # ris-mcp-standalone
 
-A Claude Code marketplace shipping the **RIS Legal** plugin — search and
+A Claude Code marketplace shipping the **RIS** plugin — search and
 citation over the Austrian **Rechtsinformationssystem** (RIS): federal, state,
 district and municipal law, gazettes (Bundesgesetzblatt, Landesgesetzblätter),
 and case law from the **VfGH, VwGH, OGH, BVwG, LVwG**, Datenschutzbehörde, and
@@ -11,16 +11,32 @@ write tools, no irreversible operations.
 
 ## Install
 
-In Claude Code:
+The plugin ships a pre-wired connector to the hosted MCP server at
+`https://rismcp.mburgler.com/mcp` — no local server, no API key.
+
+### Easiest — in the Claude app (chat or Cowork)
+
+For non-technical users. Gives you both the tools **and** the bundled skill.
+
+1. Open **Personal plugins** and click **"+"**.
+2. Choose **Add marketplace** → **Add from a repository**.
+3. Paste: `https://github.com/mburgler/ris-mcp-standalone`
+4. Find **RIS - Österreichisches Recht Plugin** and click **Install**.
+
+### Claude Code (CLI)
 
 ```text
 /plugin marketplace add https://github.com/mburgler/ris-mcp-standalone
-/plugin install ris-legal@ris-mcp-standalone
+/plugin install ris-mcp@ris-mcp-standalone
 ```
 
-That registers the marketplace and installs the `ris-legal` plugin. The plugin
-ships a pre-wired MCP connector pointing at the hosted server at
-`https://rismcp.mburgler.com/mcp` — no local server, no API key.
+### Claude Desktop / claude.ai — custom connector (tools only)
+
+Settings → Connectors → **Add custom connector** → paste
+`https://rismcp.mburgler.com/mcp`. This wires the eight tools but **not** the
+bundled skill (the verbatim-vs-paraphrase citation discipline) — skills are a
+Claude Code / plugin feature, not available to bare connectors. Prefer the
+plugin install above for the full experience.
 
 ## What you get
 
