@@ -83,7 +83,7 @@ curl https://rismcp.mburgler.com/health
 ```
 .claude-plugin/
   marketplace.json        # marketplace manifest
-ris-legal/                # the plugin itself
+ris-mcp/                  # the plugin itself
   .claude-plugin/plugin.json
   .mcp.json               # connector configuration → hosted endpoint
   README.md               # plugin-level docs
