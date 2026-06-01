@@ -1,4 +1,4 @@
-# ris-mcp-standalone
+# ris-mcp-private-server
 
 A Claude Code marketplace shipping the **RIS** plugin — search and
 citation over the Austrian **Rechtsinformationssystem** (RIS): federal, state,
@@ -21,7 +21,7 @@ For non-technical users. Gives you both the tools **and** the bundled skill.
 1. In the left sidebar, go to **Customize**.
 2. At **Personal plugins** click **"+"**.
 3. Choose **Create Plugin** → **Add marketplace** → **Add from a repository**.
-4. Paste: `https://github.com/mburgler/ris-mcp-standalone` and accept.
+4. Paste: `https://github.com/mburgler/ris-mcp-private-server` and accept.
 5. Next to **RIS - Österreichisches Recht Plugin**, click **"+"** to install.
 6. In settings, **Check the sidebar:** both the skill **`ris-research`** *and* the connector
    **`ris-mcp`** must be installed. Typically, the connector
@@ -32,8 +32,8 @@ Adding the plugin in the Claude app allows for usage in the Claude Mobile App.
 ### Claude Code (CLI)
 
 ```text
-/plugin marketplace add https://github.com/mburgler/ris-mcp-standalone
-/plugin install ris-mcp@ris-mcp-standalone
+/plugin marketplace add https://github.com/mburgler/ris-mcp-private-server
+/plugin install ris-mcp@ris-mcp-private-server
 /reload-plugins
 /reload-skills
 ```

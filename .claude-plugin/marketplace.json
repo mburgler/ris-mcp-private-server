@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "ris-mcp-standalone",
+  "name": "ris-mcp-private-server",
   "description": "Claude Code marketplace hosting the RIS plugin — search and citation over the Austrian Rechtsinformationssystem (federal/state/municipal law, gazettes, and case law from VfGH, VwGH, OGH, BVwG, LVwG, DSB, and specialised tribunals). Read-only, public, CC BY 4.0. The plugin connects to a hosted MCP server at https://rismcp.mburgler.com/mcp.",
   "owner": {
     "name": "Matteo Bürgler",
