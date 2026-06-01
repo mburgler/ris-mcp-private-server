@@ -18,10 +18,14 @@ The plugin ships a pre-wired connector to the hosted MCP server at
 
 For non-technical users. Gives you both the tools **and** the bundled skill.
 
-1. Open **Personal plugins** and click **"+"**.
-2. Choose **Add marketplace** → **Add from a repository**.
-3. Paste: `https://github.com/mburgler/ris-mcp-standalone`
-4. Find **RIS - Österreichisches Recht Plugin** and click **Install**.
+1. In the left sidebar, go to **Customize**.
+2. Open **Personal plugins** and click **"+"**.
+3. Choose **Add marketplace** → **Add from a repository**.
+4. Paste: `https://github.com/mburgler/ris-mcp-standalone`
+5. Next to **RIS - Österreichisches Recht Plugin**, click **"+"** to install.
+6. **Check the sidebar:** both the skill **`ris-research`** *and* the connector
+   **`ris-mcp`** should now appear as installed. If only one shows up, the plugin
+   didn't fully install — remove it and reinstall.
 
 ### Claude Code (CLI)
 
