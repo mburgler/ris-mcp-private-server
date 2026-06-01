@@ -27,20 +27,18 @@ For non-technical users. Gives you both the tools **and** the bundled skill.
    **`ris-mcp`** must be installed. Typically, the connector
    **`ris-mcp`** must be added individually.
 
+Adding the plugin in the Claude app allows for usage in the Claude Mobile App.
+
 ### Claude Code (CLI)
 
 ```text
 /plugin marketplace add https://github.com/mburgler/ris-mcp-standalone
 /plugin install ris-mcp@ris-mcp-standalone
+/reload-plugins
+/reload-skills
 ```
 
-### Claude Desktop / claude.ai — custom connector (tools only)
-
-Settings → Connectors → **Add custom connector** → paste
-`https://rismcp.mburgler.com/mcp`. This wires the eight tools but **not** the
-bundled skill (the verbatim-vs-paraphrase citation discipline) — skills are a
-Claude Code / plugin feature, not available to bare connectors. Prefer the
-plugin install above for the full experience.
+For command usage, type **`/ris-research`**.
 
 ## What you get
 
