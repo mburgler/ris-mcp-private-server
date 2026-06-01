@@ -37,15 +37,19 @@ Eight tools and one skill:
 | `ris_verify` | In-force check on a date against consolidated law |
 | `ris_get_history` | Change feed for an Anwendung between two dates |
 
-The bundled `ris-research` skill teaches the agent verbatim-citation policy,
-authentic-vs-informational handling, inline tag vocabulary, and prompt-injection
-defence over retrieved content.
+The bundled `ris-research` skill teaches the agent one discipline above all:
+the **verbatim-vs-paraphrase** distinction — quotation marks mark text taken
+unchanged from RIS, and paraphrase is never dressed as a quote. It keeps a lean
+inline-tag vocabulary (`[Modellwissen — zu prüfen]`, `[…]`/`[gekürzt]`,
+`[Übersetzung]`) and a one-sentence prompt-injection defence over retrieved
+content. Disclaimer once per session, no per-answer boilerplate.
 
-Every response carries a `ris_citation` (RIS internal id + ELI or
-Geschäftszahl + `dokument_url` + `retrieved_at`) and an `is_authentic` flag —
-`true` only for applications that carry legal force (the gazette and a handful
-of authentic registers), `false` for consolidated text (`BrKons`, `LrKons`) and
-informational records.
+Every record carries a `ris_citation` (RIS internal id + ELI or Geschäftszahl +
+`dokument_url` + `retrieved_at`) and an `is_authentic` flag — `true` only for
+applications that carry legal force (the gazette and a handful of authentic
+registers), `false` for consolidated text (`BrKons`, `LrKons`) and informational
+records. The server keeps this as structured data; the skill uses it for routing
+rather than surfacing it on every answer.
 
 ## Sanity check
 
