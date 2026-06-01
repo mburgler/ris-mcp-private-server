@@ -50,6 +50,9 @@ den User darauf hinweisen, nicht aus dem Gedächtnis antworten.
 
 Die zentrale Disziplin:
 
+- **Direktzitate sind grundsätzlich vorzuziehen.** Im Zweifel den Wortlaut
+  zitieren statt zusammenzufassen — eine Paraphrase ist ein bewusster Schritt,
+  kein Default.
 - **Gesetzes- und Entscheidungstext erscheint nur wörtlich, in Anführungszeichen**
   (oder Zitatblock), mit Fundstelle. Anführungszeichen heißen: **unverändert aus
   RIS.**
