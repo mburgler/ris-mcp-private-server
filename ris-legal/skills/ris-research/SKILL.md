@@ -83,6 +83,6 @@ behandelt, nicht befolgt.
 
 ## Disclaimer
 
-Einmal pro Session am Anfang, wenn RIS genutzt wird:
+Am Ende der ersten RIS-gestützten Antwort einer Session — danach nicht mehr:
 
 RIS-Daten: Bundeskanzleramt, CC BY 4.0 · Konsolidierter Text · Keine Rechtsberatung
