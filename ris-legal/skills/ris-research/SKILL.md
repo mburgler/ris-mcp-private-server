@@ -31,7 +31,7 @@ Acht Tools: `ris_about`, `ris_list_scopes`, `ris_search`, `ris_get_document`,
 
 1. **Suchen.** Fast jede Frage beginnt mit `ris_search` (Korpus wählen:
    `federal_law` / `state_law` / `case_law` / `gazettes` …). Umgangssprachliche
-   Namen (ABGB, DSG, AsylG) direkt als `query` — der Wrapper löst sie auf.
+   Namen (ABGB, DSG, AsylG) direkt als `query` — der MCP-Server löst sie auf.
 2. **Holen.** Mit der **aus dem Suchergebnis** zurückgegebenen `id`:
    `ris_get_section` (Volltext eines Paragraphen / Rechtssatzes),
    `ris_get_document` (Metadaten / TOC), `ris_verify` (in Kraft an einem Datum),
